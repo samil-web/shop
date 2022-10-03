@@ -13,8 +13,6 @@ export default class App extends Component {
     cart: [],
   };
 
-
-
   componentDidMount() {
     this.getCategories();
     this.getProducts();
