@@ -15,7 +15,7 @@ import {
 
 export default class Navi extends Component {
   render() {
-
+   console.log(this.props.cart);
     return (
       <div>
         <Navbar>
@@ -34,9 +34,9 @@ export default class Navi extends Component {
                 <DropdownToggle nav caret>
                   Your Cart
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu>
                   {this.props.cart.map((cart) => {
-                    return <DropdownItem>{cart.product}</DropdownItem>;
+                    return <DropdownItem>{cart.productName}</DropdownItem>;
                   })}
                   <DropdownItem divider />
                   <DropdownItem>Reset</DropdownItem>

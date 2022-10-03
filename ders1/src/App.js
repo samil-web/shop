@@ -20,13 +20,17 @@ export default class App extends Component {
     this.getProducts();
   }
 
+  componentDidUpdate() {
+    console.log(this.state.cart)
+  }
+
   changeCategory = (category) => {
     this.setState({ currentCategory: category.categoryName });
     this.getProducts(category.id);
   };
 
   getCategories = () => {
-    let url = "http://localhost:3000/categories";
+    let url = "http://localhost:5000/categories";
 
     fetch(url)
       .then((response) => response.json())
@@ -34,7 +38,7 @@ export default class App extends Component {
   };
 
   getProducts = (categoryId) => {
-    let url = "http://localhost:3000/products";
+    let url = "http://localhost:5000/products";
     url += "?categoryId=" + categoryId;
 
     fetch(url)
@@ -44,13 +48,14 @@ export default class App extends Component {
 
   addToCart = (product) => {
     let newCart = this.state.cart;
-    let addedItem = newCart.find((c) => c.product === product.productName);
+    let addedItem = newCart.find((c) => c.productName === product.productName);
 
     if (addedItem) {
       addedItem.quantity += 1;
+    } else {
+      newCart.push({ productName: product.productName, quantity: 1 });      
     }
 
-    newCart.push({ product: product.productName, quantity: 1 });
     this.setState({ cart: newCart });
   };
 
@@ -60,11 +65,10 @@ export default class App extends Component {
       <div className="App">
         <Container>
           <Navi cart={this.state.cart} />
-          {console.log(this.state.cart)}
           <Row>
             <Col className="col-4 bg-danger">
               <Category
-                categories={this.state.categories}
+                categories={this.state.categories}  
                 changeCategory={this.changeCategory}
                 currentCategory={this.state.currentCategory}
               />
@@ -81,3 +85,4 @@ export default class App extends Component {
     );
   }
 }
+
