@@ -22,27 +22,30 @@ export default class Navi extends Component {
         <Navbar>
           <NavbarBrand href="/">Shop</NavbarBrand>
           {/* <Collapse> */}
-            <Nav>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Your Cart-{this.props.cart.length}
-                </DropdownToggle>
-                <DropdownMenu>
-                  <CartSummary cart = {this.props.cart} />
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
+          <Nav>
+            <NavItem>
+              <NavLink href="/components/">Components</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">
+                GitHub
+              </NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                {this.props.cart.length > 0 ? "Your Cart" : "Empty Cart"}-{this.props.cart.length}
+              </DropdownToggle>
+              <DropdownMenu>
+
+                <CartSummary cart={this.props.cart} resetCart={this.props.resetCart} />
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
           {/* </Collapse> */}
         </Navbar>
+        console.log(this.props)
       </div>
+
     );
   }
 }

@@ -22,15 +22,7 @@ export default class Product extends Component {
           <tbody>
             {this.props.products.map((product) => {
               return (
-                <tr>
-<<<<<<< HEAD
-                  <th>
-                    <td id="row">{product.id}</td>
-                    <td>{product.productName}</td>
-                    <td>{product.unitPrice}</td>
-                    <td>{product.unitsInStock}</td>
-                  </th>
-=======
+                <tr key={product.id}>
                   <td>{product.id}</td>
                   <td>{product.productName}</td>
                   <td>{product.unitPrice}</td>
@@ -38,7 +30,6 @@ export default class Product extends Component {
                   <td>
                     <Button color="info" onClick={() => this.props.addToCart(product)}>Add</Button>
                   </td>
->>>>>>> upstream/master
                 </tr>
               )
             })}

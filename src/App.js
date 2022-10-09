@@ -16,6 +16,7 @@ export default class App extends Component {
   componentDidMount() {
     this.getCategories();
     this.getProducts();
+    this.resetCart();
   }
 
   componentDidUpdate() {
@@ -56,7 +57,9 @@ export default class App extends Component {
 
     this.setState({ cart: newCart });
   };
-
+  resetCart = () => {
+    this.setState({ cart: [] })
+  }
   render() {
     return (
       // JSX

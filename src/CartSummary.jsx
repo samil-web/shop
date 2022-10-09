@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import {
-    DropdownItem,
-    Badge
+  DropdownItem,
+  Badge,
+  Button
 } from "reactstrap";
-
 export default class CartSummary extends Component {
   render() {
     return (
@@ -22,7 +22,9 @@ export default class CartSummary extends Component {
           );
         })}
         <DropdownItem divider />
-        <DropdownItem>Reset</DropdownItem>
+        <Button onClick={() => this.props.resetCart}>
+          Reset
+        </Button>
       </div>
     );
   }
