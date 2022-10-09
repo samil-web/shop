@@ -23,19 +23,19 @@ export default class Product extends Component {
             {this.props.products.map((product) => {
               return (
                 <tr>
-                  <th scope="row">{product.id}</th>
-                  <td>{product.productName}</td>
-                  <td>{product.unitPrice}</td>
-                  <td>{product.unitsInStock}</td>
-                  <td>
-                    <Button color="info" onClick={() => this.props.addToCart(product)}>Add</Button>
-                  </td>
+                  <th>
+                    <td id="row">{product.id}</td>
+                    <td>{product.productName}</td>
+                    <td>{product.unitPrice}</td>
+                    <td>{product.unitsInStock}</td>
+                  </th>
                 </tr>
-              );
+              )
             })}
           </tbody>
         </Table>
       </div>
-    );
+
+    )
   }
 }

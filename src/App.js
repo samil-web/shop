@@ -28,7 +28,7 @@ export default class App extends Component {
   };
 
   getCategories = () => {
-    let url = "http://localhost:5000/categories";
+    let url = "http://localhost:3000/categories";
 
     fetch(url)
       .then((response) => response.json())
@@ -36,7 +36,7 @@ export default class App extends Component {
   };
 
   getProducts = (categoryId) => {
-    let url = "http://localhost:5000/products";
+    let url = "http://localhost:3000/products";
     url += "?categoryId=" + categoryId;
 
     fetch(url)
@@ -51,7 +51,7 @@ export default class App extends Component {
     if (addedItem) {
       addedItem.quantity += 1;
     } else {
-      newCart.push({ productName: product.productName, quantity: 1 });      
+      newCart.push({ productName: product.productName, quantity: 1 });
     }
 
     this.setState({ cart: newCart });
@@ -66,7 +66,7 @@ export default class App extends Component {
           <Row>
             <Col className="col-4 bg-danger">
               <Category
-                categories={this.state.categories}  
+                categories={this.state.categories}
                 changeCategory={this.changeCategory}
                 currentCategory={this.state.currentCategory}
               />
