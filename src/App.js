@@ -46,7 +46,7 @@ export default class App extends Component {
 
   addToCart = (product) => {
     let newCart = this.state.cart;
-    let addedItem = newCart.find((c) => c.productName === product.productName);
+    let addedItem = newCart.find(c => c.productName === product.productName);
 
     if (addedItem) {
       addedItem.quantity += 1;

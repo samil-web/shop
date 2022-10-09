@@ -11,11 +11,10 @@ export default class Category extends Component {
         <ListGroup>
           {this.props.categories.map(category => {
             return (
-              <ListGroupItem key={category.id} onClick={() => this.props.changeCategory(category)} >{category.categoryName}</ListGroupItem>
+              <ListGroupItem active={this.props.currentCategory===category.categoryName} key={category.id} onClick={() => this.props.changeCategory(category)} >{category.categoryName}</ListGroupItem>
             )
           })}
         </ListGroup>
-        <h4>{this.props.currentCategory}</h4>
       </div>
     );
   }

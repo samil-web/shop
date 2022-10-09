@@ -9,13 +9,14 @@ import {
   NavLink,
   UncontrolledDropdown,
   DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  DropdownMenu
+  // DropdownItem,
+  // Badge,
 } from "reactstrap";
+import CartSummary from "./CartSummary";
 
 export default class Navi extends Component {
   render() {
-   console.log(this.props.cart);
     return (
       <div>
         <Navbar>
@@ -32,14 +33,10 @@ export default class Navi extends Component {
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Your Cart
+                  Your Cart-{this.props.cart.length}
                 </DropdownToggle>
                 <DropdownMenu>
-                  {this.props.cart.map((cart) => {
-                    return <DropdownItem>{cart.productName}</DropdownItem>;
-                  })}
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
+                  <CartSummary cart = {this.props.cart} />
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
